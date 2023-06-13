@@ -10,7 +10,7 @@ B. A dokumentáció előnyben részesítése a működő szoftverrel szemben
 C. Együttműködés az ügyféllel szerződés tárgyalása helyett
 D. Egyértelműen meghatározott projektszabályok a változások helyett
 
-Válasz:
+Válasz: C
 
 Kérdés 2:
 Melyik elem NEM része a Kanban táblának?
@@ -20,7 +20,7 @@ B. Munkafázisok
 C. WIP limitek
 D. Ütemterv
 
-Válasz:
+Válasz: D
 
 Kérdés 3:
 Melyik az alábbiak közül NEM egy Agile módszertan?
