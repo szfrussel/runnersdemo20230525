@@ -20,6 +20,18 @@ public class RunnerController {
     @GetMapping("/runners")
     public String getAllRunners(Model model) {
         List<RunnerEntity> runners = runnerRepository.findAll();
+
+        int count = 0;
+        double height = 0;
+
+        for (RunnerEntity runner : runners) {
+            height += runner.getRunnerHight();
+            count++;
+            }
+
+        double averageHeight = height / count;
+
+        model.addAttribute("averageHeight", averageHeight);
         model.addAttribute("runners", runners);
         return "runners";
     }

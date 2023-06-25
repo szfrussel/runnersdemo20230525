@@ -28,6 +28,19 @@
         </tr>
         </tbody>
     </table>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Average Height</th>
+        </tr>
+        </thead>
+        <tr>
+
+            <td th:text="${#numbers.formatDecimal(averageHeight, 1, 1)} + ' cm'"></td>
+        </tr>
+    </table>
+
+
 </div>
 </body>
 </html>
