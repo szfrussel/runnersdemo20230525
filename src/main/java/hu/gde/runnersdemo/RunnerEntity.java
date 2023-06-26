@@ -62,4 +62,12 @@ public class RunnerEntity {
     public List<LapTimeEntity> getLaptimes() {
         return laptimes;
     }
+
+    public SponsorEntity getSponsor() {
+        return Sponsor;
+    }
+
+    public void setSponsor(SponsorEntity sponsor) {
+        Sponsor = sponsor;
+    }
 }

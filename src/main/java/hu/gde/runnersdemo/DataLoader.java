@@ -8,18 +8,29 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final RunnerRepository runnerRepository;
+    private final SponsorRepository sponsorRepository;
 
     @Autowired
-    public DataLoader(RunnerRepository runnerRepository) {
+    public DataLoader(RunnerRepository runnerRepository, SponsorRepository sponsorRepository) {
         this.runnerRepository = runnerRepository;
-    }
+        this.sponsorRepository = sponsorRepository; }
+
 
     @Override
     public void run(String... args) {
+        SponsorEntity sponsor1 = new SponsorEntity();
+        sponsor1.setSponsorName("Nike");
+        sponsorRepository.save(sponsor1);
+
+        SponsorEntity sponsor2 = new SponsorEntity();
+        sponsor2.setSponsorName("Fila");
+        sponsorRepository.save(sponsor2);
+
         RunnerEntity runnerEntity = new RunnerEntity();
         runnerEntity.setRunnerName("Tomi");
         runnerEntity.setAveragePace(310);
         runnerEntity.setRunnerHight(178);
+        runnerEntity.setSponsor(sponsor1);
 
         LapTimeEntity laptime1 = new LapTimeEntity();
         laptime1.setLapNumber(1);
@@ -31,6 +42,9 @@ public class DataLoader implements CommandLineRunner {
         laptime2.setTimeSeconds(110);
         laptime2.setRunner(runnerEntity);
 
+
+
+        //runnerEntity.setSponsor(sponsor1);
         runnerEntity.getLaptimes().add(laptime1);
         runnerEntity.getLaptimes().add(laptime2);
 
@@ -40,6 +54,7 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity2.setRunnerName("Zsuzsi");
         runnerEntity2.setAveragePace(290);
         runnerEntity2.setRunnerHight(165);
+        runnerEntity2.setSponsor(sponsor2);
 
         LapTimeEntity laptime3 = new LapTimeEntity();
         laptime3.setLapNumber(1);
@@ -60,6 +75,7 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity3.setRunnerName("Niki");
         runnerEntity3.setAveragePace(290);
         runnerEntity3.setRunnerHight(165);
+        runnerEntity3.setSponsor(sponsor1);
 
         LapTimeEntity laptime5 = new LapTimeEntity();
         laptime5.setLapNumber(1);
