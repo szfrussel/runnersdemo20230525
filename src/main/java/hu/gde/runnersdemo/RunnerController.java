@@ -39,11 +39,14 @@ public class RunnerController {
     @GetMapping("/runner/{id}")
     public String getRunnerById(@PathVariable Long id, Model model) {
         RunnerEntity runner = runnerRepository.findById(id).orElse(null);
+
         RunnerService runnerService = new RunnerService(runnerRepository);
         if (runner != null) {
             model.addAttribute("runner", runner);
             double averageLaptime = runnerService.getAverageLaptime(runner.getRunnerId());
             model.addAttribute("averageLaptime", averageLaptime);
+            SponsorEntity sponsor = runner.getSponsor();
+            model.addAttribute("sponsor", sponsor.getSponsorName());
             return "runner";
         } else {
             return "error";
